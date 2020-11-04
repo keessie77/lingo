@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>klooien1november</title>
+    <style>
+        .vierkant{
+            height: 30px;
+            width: 30px;
+            background-color: mediumaquamarine;
+            font-size: 25px;
+            text-align: center;
+            color: mintcream ;
+            border: 1px solid white;
+        }
+        body{
+            background-image: url(frans.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <audio autoplay>
+            <source src="frans.ogg" type="audio/ogg">
+            <source src="frans.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+
+    </div>
+    <div id="nieuw">
+        <input type="text" class="vierkant" value="" id="vak0_0" onKeyup="autotab(this, document.getElementById('vak0_1'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak0_1" onKeyup="autotab(this, document.getElementById('vak0_2'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak0_2" onKeyup="autotab(this, document.getElementById('vak0_3'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak0_3" onKeyup="autotab(this, document.getElementById('vak0_4'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak0_4" onkeyup="valideerWoord(0)" maxlength="1"><br>
+
+        <input type="text" class="vierkant" value="" id="vak1_0" onKeyup="autotab(this, document.getElementById('vak1_1'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak1_1" onKeyup="autotab(this, document.getElementById('vak1_2'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak1_2" onKeyup="autotab(this, document.getElementById('vak1_3'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak1_3" onKeyup="autotab(this, document.getElementById('vak1_4'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak1_4" onkeyup="valideerWoord(1)" maxlength="1"><br>
+
+        <input type="text" class="vierkant" value="" id="vak2_0" onKeyup="autotab(this, document.getElementById('vak2_1'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak2_1" onKeyup="autotab(this, document.getElementById('vak2_2'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak2_2" onKeyup="autotab(this, document.getElementById('vak2_3'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak2_3" onKeyup="autotab(this, document.getElementById('vak2_4'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak2_4" onkeyup="valideerWoord(2)" maxlength="1"><br>
+
+        <input type="text" class="vierkant" value="" id="vak3_0" onKeyup="autotab(this, document.getElementById('vak3_1'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak3_1" onKeyup="autotab(this, document.getElementById('vak3_2'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak3_2" onKeyup="autotab(this, document.getElementById('vak3_3'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak3_3" onKeyup="autotab(this, document.getElementById('vak3_4'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak3_4" onkeyup="valideerWoord(3)" maxlength="1"><br>
+
+        <input type="text" class="vierkant" value="" id="vak4_0" onKeyup="autotab(this, document.getElementById('vak4_1'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak4_1" onKeyup="autotab(this, document.getElementById('vak4_2'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak4_2" onKeyup="autotab(this, document.getElementById('vak4_3'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak4_3" onKeyup="autotab(this, document.getElementById('vak4_4'))" maxlength="1">
+        <input type="text" class="vierkant" value="" id="vak4_4" onkeyup="valideerWoord(4)" maxlength="1">
+
+        
+       <!-- <input type="text" value= "tekst" id="nieuwe" onclick="typen()">
+        <input type="button" value="druk" id="knop1" onclick="mijnfunctie()">-->
+        <input type="button" value="Refresh Page" onclick="refresh()">
+    </div>
+    
+<script>
+        var woordenbieb = ["lingo", "bingo", "fiets", "worst", "pinda", "kwast"];
+        var lingowoord = woordenbieb[Math.floor(Math.random()*woordenbieb.length)];
+         
+        console.log(lingowoord);
+        eersteLetter(0);
+                
+        function autotab(current,to){
+        if (current.getAttribute && 
+            current.value.length==current.getAttribute("maxlength")) {
+            to.focus()
+        }
+        }
+
+        function valideerWoord(regel){
+            console.log("regel: " + regel);
+            
+            var voorVakId = "vak" + regel + "_"; 
+            
+            var l0 = document.getElementById(voorVakId+0).value;
+            var l1 = document.getElementById(voorVakId+1).value;
+            var l2 = document.getElementById(voorVakId+2).value;
+            var l3 = document.getElementById(voorVakId+3).value;
+            var l4 = document.getElementById(voorVakId+4).value;
+            console.log("laatste letter: " + l4);
+            
+            var woord = l0 + l1 + l2 + l3 +l4;
+            var beurt = regel + 1;
+            console.log("het opgegevenwoord voor beurt " + beurt + " is " + woord);
+
+            if(lingowoord == woord){
+                console.log("het woord is juist");
+                geraden(regel);
+            } else {
+                console.log("het woord is niet juist");
+                eersteLetter(beurt);
+            } 
+        }
+
+        function geraden(regel){
+            var voorVakId = "vak" + regel + "_";
+            
+            for(i=0; i<=4; i++){
+                var vakje = document.getElementById(voorVakId+i);
+                vakje.style.backgroundColor = "red";
+            }            
+        }
+
+        function eersteLetter(beurt){
+            var l = lingowoord[0];
+            console.log("Eerste letter is; " + l);
+           
+            var voorVakId = "vak" + beurt + "_";           
+            //var vakje = document.getElementById(voorVakId+0);
+            //vakje.value = l;
+            //vakje.focus();
+
+            document.getElementById(voorVakId+0).value = l;
+            document.getElementById(voorVakId+1).focus();
+
+            console.log(voorVakId+0);
+        }
+        
+        function refresh(){
+            window.location.reload();
+        } 
+
+</script>  
+ 
+   
+   
+   
+
+
+
+
+
+</body>
+</html>
